@@ -11,7 +11,7 @@ namespace SQLite
     {
         public string GetLocalFilePath(string filename)
         {
-            return Path.Combine("/", filename);
+            return Path.Combine("", filename);
         }
     }
 }

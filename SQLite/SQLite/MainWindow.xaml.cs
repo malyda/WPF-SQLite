@@ -29,10 +29,12 @@ namespace SQLite
             TodoItem item = new TodoItem();
             item.Name = "item";
             item.Text = "item text";
+            item.Done = 0;
             Database.SaveItemAsync(item);
 
 
-            var itemsFromDb = Database.GetItemsAsync().Result;
+            ///   var itemsFromDb = Database.GetItemsAsync().Result;
+              var itemsFromDb = Database.GetItemsNotDoneAsync().Result;
 
             Debug.WriteLine("                             ");
             Debug.WriteLine("                             ");

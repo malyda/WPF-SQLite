@@ -33,11 +33,9 @@ namespace SQLite
             item.Text = "item text";
             item.Done = 0;
 
-            Database.SaveItemAsync(item);
+            App.Database.SaveItemAsync(item);
 
-
-            ///   var itemsFromDb = Database.GetItemsAsync().Result;
-              itemsFromDb =new  ObservableCollection<TodoItem>(  Database.GetItemsNotDoneAsync().Result );
+            itemsFromDb =new  ObservableCollection<TodoItem>(App.Database.GetItemsNotDoneAsync().Result );
 
             Debug.WriteLine("                             ");
             Debug.WriteLine("                             ");
@@ -58,23 +56,6 @@ namespace SQLite
             ToDoItemsListView.ItemsSource = itemsFromDb;
         }
 
-
-
-    
-        private static TodoItemDatabase _database;
-
-        public static TodoItemDatabase Database
-        {
-            get
-            {
-                if (_database == null)
-                {
-                     var fileHelper = new FileHelper();
-                    _database = new TodoItemDatabase(fileHelper.GetLocalFilePath("TodoSQLite.db3"));
-                }
-                return _database;
-            }
-        }
         /// <summary>
         /// Show selected item
         /// </summary>
@@ -83,7 +64,7 @@ namespace SQLite
         private void ToDoItemsListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             TodoItem todoItem = (TodoItem) ToDoItemsListView.SelectedItems[0];
-            ItemsCount.Content = todoItem.ID;
+            ItemsCount.Content = itemsFromDb.IndexOf(todoItem);
         }
 
 
@@ -95,7 +76,7 @@ namespace SQLite
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            itemsFromDb.RemoveAt(0);
+            if(itemsFromDb.Count > 0) itemsFromDb.RemoveAt(0);
         }
     }
 }

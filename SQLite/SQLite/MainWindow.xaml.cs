@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace SQLite
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ObservableCollection<TodoItem> itemsFromDb;
         public MainWindow()
         {
             InitializeComponent();
@@ -35,7 +37,7 @@ namespace SQLite
 
 
             ///   var itemsFromDb = Database.GetItemsAsync().Result;
-              var itemsFromDb = Database.GetItemsNotDoneAsync().Result;
+              itemsFromDb =new  ObservableCollection<TodoItem>(  Database.GetItemsNotDoneAsync().Result );
 
             Debug.WriteLine("                             ");
             Debug.WriteLine("                             ");
@@ -82,6 +84,18 @@ namespace SQLite
         {
             TodoItem todoItem = (TodoItem) ToDoItemsListView.SelectedItems[0];
             ItemsCount.Content = todoItem.ID;
+        }
+
+
+        /// <summary>
+        /// Delete item from Observable collection 
+        /// When item is deleted ListView automatically refresh
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            itemsFromDb.RemoveAt(0);
         }
     }
 }

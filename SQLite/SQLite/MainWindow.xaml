@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <StackPanel>
+        <Button Click="Button_Click" >DEl</Button>
         <Label x:Name="ItemsCount"></Label>
         <ListView x:Name="ToDoItemsListView" SelectionChanged="ToDoItemsListView_OnSelectionChanged"></ListView>
     </StackPanel>

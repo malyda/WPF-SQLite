@@ -8,6 +8,6 @@
         Title="MainWindow" Height="350" Width="525">
     <StackPanel>
         <Label x:Name="ItemsCount"></Label>
-        <ListView x:Name="ToDoItemsListView"></ListView>
+        <ListView x:Name="ToDoItemsListView" SelectionChanged="ToDoItemsListView_OnSelectionChanged"></ListView>
     </StackPanel>
 </Window>

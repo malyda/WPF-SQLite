@@ -30,6 +30,7 @@ namespace SQLite
             item.Name = "item";
             item.Text = "item text";
             item.Done = 0;
+
             Database.SaveItemAsync(item);
 
 
@@ -55,6 +56,9 @@ namespace SQLite
             ToDoItemsListView.ItemsSource = itemsFromDb;
         }
 
+
+
+    
         private static TodoItemDatabase _database;
 
         public static TodoItemDatabase Database
@@ -68,6 +72,16 @@ namespace SQLite
                 }
                 return _database;
             }
+        }
+        /// <summary>
+        /// Show selected item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToDoItemsListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            TodoItem todoItem = (TodoItem) ToDoItemsListView.SelectedItems[0];
+            ItemsCount.Content = todoItem.ID;
         }
     }
 }

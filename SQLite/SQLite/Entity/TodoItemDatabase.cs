@@ -48,5 +48,12 @@ namespace SQLite.Entity
         {
             return database.DeleteAsync(item);
         }
+
+        public void ResetTable()
+        {
+            database.DropTableAsync<TodoItem>().Wait();
+            database.CreateTableAsync<TodoItem>().Wait();
+            
+        }
     }
 }

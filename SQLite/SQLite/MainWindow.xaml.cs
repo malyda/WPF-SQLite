@@ -27,6 +27,8 @@ namespace SQLite
         public MainWindow()
         {
             InitializeComponent();
+          //  App.Database.ResetTable();
+
 
             TodoItem item = new TodoItem();
             item.Name = "item";
@@ -51,8 +53,14 @@ namespace SQLite
             Debug.WriteLine("                             ");
             Debug.WriteLine("                             ");
 
-
-            ItemsCount.Content = "Items in Database " + itemsFromDb.Count;
+            if (itemsFromDb.Count < 0)
+            {
+                ItemsCount.Content = "Items in Database 0";
+            }
+            else
+            {
+                ItemsCount.Content = "Items in Database " + itemsFromDb.Count;
+            }
             ToDoItemsListView.ItemsSource = itemsFromDb;
         }
 
@@ -63,8 +71,16 @@ namespace SQLite
         /// <param name="e"></param>
         private void ToDoItemsListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            TodoItem todoItem = (TodoItem) ToDoItemsListView.SelectedItems[0];
-            ItemsCount.Content = itemsFromDb.IndexOf(todoItem);
+            TodoItem todoItem = (TodoItem) ToDoItemsListView.SelectedItem;
+            if (itemsFromDb.IndexOf(todoItem) < 0)
+            {
+                ItemsCount.Content = "0";
+            }
+            else
+            {
+                ItemsCount.Content = itemsFromDb.IndexOf(todoItem);
+            }
+          
         }
 
 

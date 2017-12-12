@@ -78,7 +78,7 @@ namespace SQLite
             }
             else
             {
-                ItemsCount.Content = itemsFromDb.IndexOf(todoItem);
+                ItemsCount.Content = "ID"+todoItem.ID;
             }
           
         }
@@ -92,7 +92,12 @@ namespace SQLite
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(itemsFromDb.Count > 0) itemsFromDb.RemoveAt(0);
+            if (itemsFromDb.Count > 0 && ToDoItemsListView.SelectedItem != null)
+            {
+                App.Database.DeleteItemAsync((TodoItem)ToDoItemsListView.SelectedItem);
+                itemsFromDb.Remove((TodoItem)ToDoItemsListView.SelectedItem);
+                ItemsCount.Content = "Item deleted";
+            }
         }
     }
 }

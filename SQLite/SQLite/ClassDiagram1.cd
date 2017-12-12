@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Database location provider">
+    <Position X="5.521" Y="2.833" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Model class (entity)">
+    <Position X="8.052" Y="2.823" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Database Methods">
+    <Position X="10.865" Y="2.823" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Holder for database instace">
+    <Position X="3" Y="2.823" Height="0.75" Width="1.877" />
+  </Comment>
+  <Class Name="SQLite.App">
+    <Position X="3" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.FileHelper">
+    <Position X="5.25" Y="3.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>FileHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.Entity.TodoItem">
+    <Position X="7.75" Y="3.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAgAAEAAAAAAQAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Entity\TodoItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SQLite.Entity.TodoItemDatabase">
+    <Position X="10.5" Y="3.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABACABAABAAAABAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Entity\TodoItemDatabase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
